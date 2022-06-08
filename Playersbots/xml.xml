@@ -1,0 +1,13 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+<Script file ="Playersbots.lua"/>
+<Script file ="TABFrame.lua"/>
+<Script file ="ButtonTest.lua"/>
+<Script file ="Settings_frame.lua"/>
+<Script file ="Mini_frame.lua"/>
+<Script file ="2panel.lua"/>
+
+
+
+</Ui>
