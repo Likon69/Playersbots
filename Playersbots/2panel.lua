@@ -1,3 +1,6 @@
+
+
+
 --1 frame
 local panel = CreateFrame("Frame", "panel2", UIParent)
 panel:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -24,6 +27,7 @@ panel:SetBackdrop({
 })
 panel:SetBackdropColor(0, 0, 0, 0.5)
 panel:SetBackdropBorderColor(0, 0, 0, 1)
+
 panel:Hide()
 --dragframe
 local dragframe = CreateFrame("Button", nil, panel)
@@ -59,6 +63,16 @@ end)
 dragframe:SetScript("OnHide", function(self)
     panel:StopMovingOrSizing()
 end)
+local function OnLoad()
+    SendChatMessage(".ser info", "SAY")
+    print("|cff00ff00[Playersbots]|r |cffffff00Loaded.|r")
+end
+panel:SetScript("OnEvent", function(self, event, ...)
+    if event == "PLAYER_ENTERING_WORLD" then
+        OnLoad()
+    end
+end)
+
 --add text green "Server :"
 local textServer = dragframe:CreateFontString(nil, "OVERLAY")
 textServer:SetFont("Fonts\\FRIZQT__.TTF", 10)
@@ -281,12 +295,12 @@ close:SetBackdropBorderColor(0, 0, 0, 1)
 local button = CreateFrame("Button", "ButtonSettings", panel) -- create a button
 button:SetSize(50, 20)
 button:SetPoint("BOTTOMLEFT", 5, 5)
-button:SetText("Settings")
+button:SetText("SQL")
 button:SetNormalTexture([[Interface\AddOns\Playersbots\Icons\Square_Normal]])
 button:SetPushedTexture([[Interface\AddOns\Playersbots\Icons\Square_Pushed]])
 button:SetHighlightTexture([[Interface\AddOns\Playersbots\Icons\Square_Hilite]])
 local setFont = button:GetFontString()
-setFont:SetFont("Fonts/FRIZQT__.ttf", 10)
+setFont:SetFont("Fonts/FRIZQT__.ttf", 10, "OUTLINE")
 --Color CornflowerBlue
 setFont:SetTextColor(0.39, 0.58, 0.93)
 -- button SetBackdrop
@@ -347,7 +361,7 @@ buttonLeave:SetScript("OnClick", function(self)
 end)
 buttonLeave:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.5)
-    self:SetBackdropBorderColor(1, 1, 0, 1)
+    -- self:SetBackdropBorderColor(1, 1, 0, 1)
 end)
 buttonLeave:SetScript("OnLeave", function(self)
     self:SetBackdropColor(0, 0, 0, 0.1)
@@ -404,7 +418,7 @@ buttonAddAlt:SetHighlightTexture([[Interface\AddOns\Playersbots\Icons\Square_Hil
 buttonAddAlt:SetText("Add Alt")
 --text button add alt
 local setFont = buttonAddAlt:GetFontString()
-setFont:SetFont("Fonts/FRIZQT__.ttf", 10)
+setFont:SetFont("Fonts/FRIZQT__.ttf", 10, "OUTLINE")
 
 -- button SetBackdrop buttonAddAlt
 buttonAddAlt:SetBackdrop({

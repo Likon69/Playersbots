@@ -109,29 +109,67 @@ title2:SetBackdropBorderColor(0, 0, 0, 1)
 local title2_text = title2:CreateFontString(nil, "OVERLAY")
 title2_text:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 title2_text:SetPoint("CENTER", 0, 0)
-title2_text:SetText("Advanced Settings")
+title2_text:SetText("SQL(Farmer)")
+title2_text:SetTextColor(0.39, 0.58, 0.93)
 --------------------------------------------------------------------------
 --add button .bots farmer addPoint
-local buttonFarmerAddPoint = CreateFrame("Button", "2panel_settings_buttonFarmerAddPoint", settings, "UIPanelButtonTemplate")
+local buttonFarmerAddPoint = CreateFrame("Button", "2panel_settings_buttonFarmerAddPoint" , settings)
 buttonFarmerAddPoint:SetSize(110, 25)
 buttonFarmerAddPoint:SetPoint("TOPLEFT", settings, "TOPLEFT", 10, -40)
 buttonFarmerAddPoint:SetText("Add path point")
+local setFont = buttonFarmerAddPoint:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerAddPoint:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerAddPoint:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerAddPoint:SetBackdropBorderColor(0, 0, 0, 1)
+
 buttonFarmerAddPoint:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
 end)
 buttonFarmerAddPoint:SetScript("OnLeave", function(self)
-    self:SetBackdropColor(0, 0, 0, 0.5)
+    self:SetBackdropColor(0, 0, 0, 0.4)
     self:SetBackdropBorderColor(0, 0, 0, 1)
 end)
 buttonFarmerAddPoint:SetScript("OnClick", function(self)
     SendChatMessage(".bots farmer addPoint")
 end)
 --button .bots farmer finishPathZone
-local buttonFarmerFinishPathZone = CreateFrame("Button", "2panel_settings_buttonFarmerFinishPathZone", settings, "UIPanelButtonTemplate")
+local buttonFarmerFinishPathZone = CreateFrame("Button", "2panel_settings_buttonFarmerFinishPathZone", settings)
 buttonFarmerFinishPathZone:SetSize(110, 25)
 buttonFarmerFinishPathZone:SetPoint("TOPLEFT", settings, "TOPLEFT", 120, -40)
 buttonFarmerFinishPathZone:SetText("Finish zone path")
+local setFont = buttonFarmerFinishPathZone:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerFinishPathZone:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerFinishPathZone:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerFinishPathZone:SetBackdropBorderColor(0, 0, 0, 1)
 buttonFarmerFinishPathZone:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
@@ -144,10 +182,28 @@ buttonFarmerFinishPathZone:SetScript("OnClick", function(self)
     SendChatMessage(".bots farmer finishPathZone")
 end)
 --button .bots farmer finishPathConnection
-local buttonFarmerFinishPathConnection = CreateFrame("Button", "2panel_settings_buttonFarmerFinishPathConnection", settings, "UIPanelButtonTemplate")
-buttonFarmerFinishPathConnection:SetSize(150, 25)
+local buttonFarmerFinishPathConnection = CreateFrame("Button", "2panel_settings_buttonFarmerFinishPathConnection", settings)
+buttonFarmerFinishPathConnection:SetSize(140, 25)
 buttonFarmerFinishPathConnection:SetPoint("TOPLEFT", settings, "TOPLEFT", 245, -40)
 buttonFarmerFinishPathConnection:SetText("Finish connection path")
+local setFont = buttonFarmerFinishPathConnection:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerFinishPathConnection:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerFinishPathConnection:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerFinishPathConnection:SetBackdropBorderColor(0, 0, 0, 1)
 --Textbox
 local textbox = CreateFrame("EditBox", "2panel_settings_textbox", settings, "InputBoxTemplate")
 textbox:SetSize(90, 25)
@@ -173,16 +229,12 @@ textbox2_text:SetText("End zone id")
 buttonFarmerFinishPathConnection:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
-end)
-buttonFarmerFinishPathConnection:SetScript("OnLeave", function(self)
-    self:SetBackdropColor(0, 0, 0, 0.5)
-    self:SetBackdropBorderColor(0, 0, 0, 1)
-end)
-buttonFarmerFinishPathConnection:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:SetText("Add you zone id to the end of the path", 1, 1, 1, 1, true)
 end)
 buttonFarmerFinishPathConnection:SetScript("OnLeave", function(self)
+    self:SetBackdropColor(0, 0, 0, 0.4)
+    self:SetBackdropBorderColor(0, 0, 0, 1)
     GameTooltip:Hide()
 end)
 buttonFarmerFinishPathConnection:SetScript("OnClick", function(self)
@@ -214,21 +266,90 @@ local textboxMaxlevel_text = textboxMaxlevel:CreateFontString(nil, "OVERLAY")
 textboxMaxlevel_text:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
 textboxMaxlevel_text:SetPoint("CENTER", -5, 20)
 textboxMaxlevel_text:SetText("Maxlevel")
---texbox Team disable ID
+-- texbox Team disable ID
 local textboxTeamDisableID = CreateFrame("EditBox", "2panel_settings_textboxTeamDisableID", settings, "InputBoxTemplate")
 textboxTeamDisableID:SetSize(90, 25)
-textboxTeamDisableID:SetPoint("TOPLEFT", settings, "TOPLEFT", 210, -120)
+textboxTeamDisableID:SetPoint("TOPLEFT", settings, "TOPLEFT", 310, -120)
 textboxTeamDisableID:SetAutoFocus(false)
 textboxTeamDisableID:SetText("")
---texbox text
+-- --texbox text
 local textboxTeamDisableID_text = textboxTeamDisableID:CreateFontString(nil, "OVERLAY")
 textboxTeamDisableID_text:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-textboxTeamDisableID_text:SetPoint("CENTER", -5, 20)
+textboxTeamDisableID_text:SetPoint("CENTER", 0, 20)
 textboxTeamDisableID_text:SetText("Team disable ID")
+
+
+
+
+local comboboxTeamDisableID = CreateFrame("Frame", "2panel_settings_comboboxTeamDisableID", settings, "UIDropDownMenuTemplate")
+comboboxTeamDisableID:SetSize(75, 25)
+comboboxTeamDisableID:SetPoint("TOPLEFT", settings, "TOPLEFT", 400, -120)
+local function OnClick(self)
+    --selected on
+    UIDropDownMenu_SetSelectedID(comboboxTeamDisableID, self:GetID())
+    --set value
+    local value = self:GetID()
+    if value == 1 then
+        value = "0"
+    elseif value == 2 then
+        value = "67"
+    elseif value == 3 then
+        value = "469"
+    end
+    --put value in textbox
+    textboxTeamDisableID:SetText(value)
+end
+local function initialize(self, level)
+    local info = UIDropDownMenu_CreateInfo()
+ --selected on option
+    if UIDropDownMenu_GetSelectedID(comboboxTeamDisableID) == 1 then
+        info.checked = true
+    else
+        info.checked = false
+    end
+    info.text = "None"
+    info.value = 0
+    info.func = OnClick
+    UIDropDownMenu_AddButton(info, level)
+    --selected on option
+    if UIDropDownMenu_GetSelectedID(comboboxTeamDisableID) == 2 then
+        info.checked = true
+    else
+        info.checked = false
+    end
+    info.text = "Horde"
+    info.value = 67
+    info.func = OnClick
+    UIDropDownMenu_AddButton(info, level)
+    if UIDropDownMenu_GetSelectedID(comboboxTeamDisableID) == 3 then
+        info.checked = true
+    else
+        info.checked = false
+    end
+    info.text = "Alliance"
+    info.value = 469
+    info.func = OnClick
+    UIDropDownMenu_AddButton(info, level)
+    
+end
+UIDropDownMenu_Initialize(comboboxTeamDisableID, initialize)
+UIDropDownMenu_SetWidth(comboboxTeamDisableID, 75)
+UIDropDownMenu_SetButtonWidth(comboboxTeamDisableID, 30)
+    --OnEnter GameTooltip
+    comboboxTeamDisableID:SetScript("OnEnter", function(self)
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:SetText("Select the team disable", 1, 1, 1, 1, true)
+    end)
+    --OnLeave GameTooltip
+    comboboxTeamDisableID:SetScript("OnLeave", function(self)
+        GameTooltip:Hide()
+    end)
+-- UIDropDownMenu_SetSelectedValue(comboboxTeamDisableID, 1)
+-- UIDropDownMenu_JustifyText(comboboxTeamDisableID, "LEFT")
 --textbox Radius
 local textboxRadius = CreateFrame("EditBox", "2panel_settings_textboxRadius", settings, "InputBoxTemplate")
 textboxRadius:SetSize(90, 25)
-textboxRadius:SetPoint("TOPLEFT", settings, "TOPLEFT", 310, -120)
+textboxRadius:SetPoint("TOPLEFT", settings, "TOPLEFT", 210, -120)
 textboxRadius:SetAutoFocus(false)
 textboxRadius:SetText("")
 --texbox text
@@ -237,10 +358,29 @@ textboxRadius_text:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
 textboxRadius_text:SetPoint("CENTER", -5, 20)
 textboxRadius_text:SetText("Radius")
 --Button .bots farmer writeFarmingSpot
-local buttonFarmerWriteFarmingSpot = CreateFrame("Button", "2panel_settings_buttonFarmerWriteFarmingSpot", settings, "UIPanelButtonTemplate")
+local buttonFarmerWriteFarmingSpot = CreateFrame("Button", "2panel_settings_buttonFarmerWriteFarmingSpot", settings)
 buttonFarmerWriteFarmingSpot:SetSize(150, 25)
 buttonFarmerWriteFarmingSpot:SetPoint("TOPLEFT", settings, "TOPLEFT", 10, -160)
 buttonFarmerWriteFarmingSpot:SetText("Write farming spot")
+local setFont = buttonFarmerWriteFarmingSpot:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerWriteFarmingSpot:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerWriteFarmingSpot:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerWriteFarmingSpot:SetBackdropBorderColor(0, 0, 0, 1)
+
 buttonFarmerWriteFarmingSpot:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
@@ -257,10 +397,28 @@ buttonFarmerWriteFarmingSpot:SetScript("OnClick", function(self)
     textboxRadius:ClearFocus()
 end)
 --button .bots farmer writeCity
-local buttonFarmerWriteCity = CreateFrame("Button", "2panel_settings_buttonFarmerWriteCity", settings, "UIPanelButtonTemplate")
+local buttonFarmerWriteCity = CreateFrame("Button", "2panel_settings_buttonFarmerWriteCity", settings)
 buttonFarmerWriteCity:SetSize(150, 25)
 buttonFarmerWriteCity:SetPoint("TOPLEFT", settings, "TOPLEFT", 170, -160)
 buttonFarmerWriteCity:SetText("Write city")
+local setFont = buttonFarmerWriteCity:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerWriteCity:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerWriteCity:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerWriteCity:SetBackdropBorderColor(0, 0, 0, 1)
 buttonFarmerWriteCity:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
@@ -278,10 +436,28 @@ buttonFarmerWriteCity:SetScript("OnClick", function(self)
 end)    
 ------------------------------------------------------------------------------
 --button .bots farmer reloadFarmingData
-local buttonFarmerReloadFarmingData = CreateFrame("Button", "2panel_settings_buttonFarmerReloadFarmingData", settings, "UIPanelButtonTemplate")
+local buttonFarmerReloadFarmingData = CreateFrame("Button", "2panel_settings_buttonFarmerReloadFarmingData", settings)
 buttonFarmerReloadFarmingData:SetSize(150, 25)
 buttonFarmerReloadFarmingData:SetPoint("TOPLEFT", settings, "TOPLEFT", 10, -230)
 buttonFarmerReloadFarmingData:SetText("Reload farming data")
+local setFont = buttonFarmerReloadFarmingData:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerReloadFarmingData:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerReloadFarmingData:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerReloadFarmingData:SetBackdropBorderColor(0, 0, 0, 1)
 buttonFarmerReloadFarmingData:SetScript("OnEnter", function(self)
     self:SetBackdropColor(0, 0, 0, 0.8)
     self:SetBackdropBorderColor(0, 0, 0, 1)
@@ -294,10 +470,28 @@ buttonFarmerReloadFarmingData:SetScript("OnClick", function(self)
     SendChatMessage(".bots farmer reloadFarmingData")
 end)
 --button .bots farmer showZonePaths
-local buttonFarmerShowZonePaths = CreateFrame("Button", "2panel_settings_buttonFarmerShowZonePaths", settings, "UIPanelButtonTemplate")
+local buttonFarmerShowZonePaths = CreateFrame("Button", "2panel_settings_buttonFarmerShowZonePaths", settings)
 buttonFarmerShowZonePaths:SetSize(150, 25)
 buttonFarmerShowZonePaths:SetPoint("TOPLEFT", settings, "TOPLEFT", 170, -230)
 buttonFarmerShowZonePaths:SetText("Show zone paths")
+local setFont = buttonFarmerShowZonePaths:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonFarmerShowZonePaths:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonFarmerShowZonePaths:SetBackdropColor(0, 0, 0, 0.4)
+buttonFarmerShowZonePaths:SetBackdropBorderColor(0, 0, 0, 1)
 --TextboxZoneID
 local textboxZoneID = CreateFrame("EditBox", "2panel_settings_textboxZoneID", settings, "InputBoxTemplate")
 textboxZoneID:SetSize(90, 25)
@@ -323,10 +517,28 @@ buttonFarmerShowZonePaths:SetScript("OnClick", function(self)
 end)
 ------------------------------------------------------------------------------
 --Button .GPS
-local buttonGPS = CreateFrame("Button", "2panel_settings_buttonGPS", settings, "UIPanelButtonTemplate")
+local buttonGPS = CreateFrame("Button", "2panel_settings_buttonGPS", settings)
 buttonGPS:SetSize(55, 45)
 buttonGPS:SetPoint("TOPLEFT", settings, "TOPLEFT", 540, -250)
 buttonGPS:SetText("GPS")
+local setFont = buttonGPS:GetFontString()
+setFont:SetFont("Fonts\\FRIZQT__.TTF", 10)
+setFont:SetPoint("CENTER", 0, 0)
+buttonGPS:SetBackdrop ({
+    bgFile = "Interface/Buttons/WHITE8x8",
+    edgeFile = "Interface/Buttons/WHITE8x8",
+    tile = false,
+    tileSize = 0,
+    edgeSize = 1,
+    insets = {
+        left = 0,
+        right = 0,
+        top = 0,
+        bottom = 0
+    }
+})
+buttonGPS:SetBackdropColor(0, 0, 0, 0.4)
+buttonGPS:SetBackdropBorderColor(0, 0, 0, 1)
 buttonGPS:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:SetText("Shows all the data you need in chat. (.gps)", 1, 1, 1, 1, true)
@@ -352,12 +564,12 @@ textboxMinlevel:SetScript("OnTabPressed", function(self)
     textboxMaxlevel:SetFocus()
 end)
 textboxMaxlevel:SetScript("OnTabPressed", function(self)
-    textboxTeamDisableID:SetFocus()
-end)
-textboxTeamDisableID:SetScript("OnTabPressed", function(self)
     textboxRadius:SetFocus()
 end)
 textboxRadius:SetScript("OnTabPressed", function(self)
+    textboxTeamDisableID:SetFocus()
+end)
+textboxTeamDisableID:SetScript("OnTabPressed", function(self)
     textboxZoneID:SetFocus()
 end)
 textboxZoneID:SetScript("OnTabPressed", function(self)

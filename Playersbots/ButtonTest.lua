@@ -21,7 +21,6 @@ roundButton:SetScript("OnClick", function(self, button)
         end
     end
 end)
-
 roundButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
