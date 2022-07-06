@@ -2,7 +2,7 @@
 ## Title: |cff00aaffPlayersbots|r
 ## Notes: Addon Playersbots for MoP emucoach
 ## Author: #Likon69
-## Version:  0.3
+## Version:  0.4
 ## SavedVariables: Playersbots_SavedVars
 ## SavedVariablesPerCharacter: Playersbots_CharVars
 xml.xml

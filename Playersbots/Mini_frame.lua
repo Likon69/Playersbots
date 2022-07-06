@@ -130,25 +130,25 @@ roundbuttonFollow:SetHeight(34)
 --add text OFF/ON
 local textF = roundbuttonFollow:CreateFontString(nil, "OVERLAY")
 textF:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
-textF:SetTextColor(1, 0, 0)
+textF:SetTextColor(0, 1, 0)
 textF:SetPoint("CENTER", roundbuttonFollow, "CENTER", 0, 0)
-textF:SetText("OFF")
+textF:SetText("ON")
 roundbuttonFollow:SetPoint("CENTER", panel3_mini, "CENTER", -50,  0)
 roundbuttonFollow:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\BigNormal")
 roundbuttonFollow:SetPushedTexture("Interface\\AddOns\\Playersbots\\Icons\\BigPushed")
 roundbuttonFollow:SetHighlightTexture("Interface\\AddOns\\Playersbots\\Icons\\Green")
 roundbuttonFollow:SetScript("OnClick", function(self)
     if (IsInGroup()) then
-        if (textF:GetText() == "OFF") then
-            textF:SetText("ON")
-            textF:SetTextColor(0, 1, 0)
-            SendChatMessage(".bots follow 1")
-            self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\Shadow")
-            label:Hide()
-        else
+        if (textF:GetText() == "ON") then
             textF:SetText("OFF")
             textF:SetTextColor(1, 0, 0)
             SendChatMessage(".bots follow 0")
+            self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\Shadow")
+            label:Hide()
+        else
+            textF:SetText("ON")
+            textF:SetTextColor(0, 1, 0)
+            SendChatMessage(".bots follow 1")
             self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\BigNormal")
             label:Show()
         end
@@ -168,23 +168,23 @@ local label1 = roundbuttonAggressive:CreateFontString(nil, "OVERLAY")
 label1:SetFont("Fonts\\FRIZQT__.TTF", 12, "OUTLINE")
 label1:SetTextColor(1, 1, 0)
 label1:SetPoint("CENTER", roundbuttonAggressive, "CENTER", 0, 0)
-label1:SetText("OFF")
+label1:SetText("ON")
 roundbuttonAggressive:SetPoint("CENTER", panel3_mini, "CENTER", 50, 0)
 roundbuttonAggressive:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\BigNormal")
 roundbuttonAggressive:SetPushedTexture("Interface\\AddOns\\Playersbots\\Icons\\BigPushed")
 roundbuttonAggressive:SetHighlightTexture("Interface\\AddOns\\Playersbots\\Icons\\Yellow")
 roundbuttonAggressive:SetScript("OnClick", function(self)
     if (IsInGroup()) then
-        if (label1:GetText() == "OFF") then
-            label1:SetText("ON")
-            label1:SetTextColor(0, 1, 0)
-            SendChatMessage(".bots aggressive 1")
-            self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\Shadow")
-            label2:Hide()
-        else
+        if (label1:GetText() == "ON") then
             label1:SetText("OFF")
             label1:SetTextColor(1, 0, 0)
             SendChatMessage(".bots aggressive 0")
+            self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\Shadow")
+            label2:Hide()
+        else
+            label1:SetText("ON")
+            label1:SetTextColor(1, 1, 0)
+            SendChatMessage(".bots aggressive 1")
             self:SetNormalTexture("Interface\\AddOns\\Playersbots\\Icons\\BigNormal")
             label2:Show()
         end
